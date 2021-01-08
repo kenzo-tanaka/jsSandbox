@@ -1,12 +1,14 @@
 const userId = "js-primer-example";
 
 const main = () => {
-  fetchUserInfo("js-primer-example");
+  fetchUserInfo("js-primer-example").catch((error) => {
+    console.error(`エラーが発生しました ${error}`);
+  });
 };
 
 const fetchUserInfo = (userId) => {
-  fetch(`https://api.github.com/users/${encodeURIComponent(userId)}`)
-    .then((response) => {
+  fetch(`https://api.github.com/users/${encodeURIComponent(userId)}`).then(
+    (response) => {
       console.log(response.status);
 
       if (!response.ok) {
@@ -17,10 +19,8 @@ const fetchUserInfo = (userId) => {
           displayView(view);
         });
       }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
+    }
+  );
 };
 
 function createView(userInfo) {
