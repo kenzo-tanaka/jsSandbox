@@ -3,7 +3,7 @@ const userId = "js-primer-example";
 // Async function を使うと、同期処理と同じ見た目でPromiseの非同期処理を記述できる
 // thenメソッドによるコールバック関数の入れ子がなくなり、手続き的で可読性が高いコードにできる
 // エラーハンドリングも同期処理と同じく、try...catch構文を使える
-async function main() {
+const main = async () => {
   try {
     const userInfo = await fetchUserInfo("kenzoukenzou");
     const view = createView(userInfo);
@@ -11,7 +11,7 @@ async function main() {
   } catch (error) {
     console.error(`Error happened: ${error}`);
   }
-}
+};
 
 const fetchUserInfo = (userId) => {
   return fetch(
@@ -28,7 +28,7 @@ const fetchUserInfo = (userId) => {
   });
 };
 
-function createView(userInfo) {
+const createView = (userInfo) => {
   return escapeHTML`
     <h4>${userInfo.name} (@${userInfo.login})</h4>
     <img src="${userInfo.avatar_url}" alt="${userInfo.login}" height="100">
@@ -39,12 +39,12 @@ function createView(userInfo) {
         <dd>${userInfo.public_repos}</dd>
     </dl>
     `;
-}
+};
 
-function displayView(view) {
+const displayView = (view) => {
   const result = document.getElementById("result");
   result.innerHTML = view;
-}
+};
 
 const escapeSpecialChars = (str) => {
   return str
