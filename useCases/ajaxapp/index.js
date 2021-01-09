@@ -1,15 +1,17 @@
 const userId = "js-primer-example";
 
-const main = () => {
-  fetchUserInfo("kenzoukenzou")
-    // ここではJSONオブジェクトで解決されるPromise
-    .then((userInfo) => createView(userInfo))
-    // ここではHTML文字列で解決されるPromise
-    .then((view) => displayView(view))
-    .catch((error) => {
-      console.error(`Error happened: ${error}`);
-    });
-};
+// Async function を使うと、同期処理と同じ見た目でPromiseの非同期処理を記述できる
+// thenメソッドによるコールバック関数の入れ子がなくなり、手続き的で可読性が高いコードにできる
+// エラーハンドリングも同期処理と同じく、try...catch構文を使える
+async function main() {
+  try {
+    const userInfo = await fetchUserInfo("kenzoukenzou");
+    const view = createView(userInfo);
+    displayView(view);
+  } catch (error) {
+    console.error(`Error happened: ${error}`);
+  }
+}
 
 const fetchUserInfo = (userId) => {
   return fetch(
