@@ -18,8 +18,14 @@ export class App {
       const todoItems = this.todoListModel.getTodoItems();
       todoItems.forEach((item) => {
         const todoItemElement = item.completed
-          ? element`<li><input type="checkbox" class="checkbox" checked><s>${item.title}</s></li>`
-          : element`<li><input type="checkbox" class="checkbox">${item.title}</li>`;
+          ? element`<li><input type="checkbox" class="checkbox" checked>
+            <s>${item.title}</s>
+            <button class="delete">x</button>
+          </li>`
+          : element`<li><input type="checkbox" class="checkbox">
+            ${item.title}
+            <button class="delete">x</button>
+          </li>`;
 
         const inputCheckBoxElement = todoItemElement.querySelector(".checkbox");
         inputCheckBoxElement.addEventListener("change", () => {
@@ -29,12 +35,17 @@ export class App {
           });
         });
 
+        const deleteButtonElement = todoItemElement.querySelector(".delete");
+        deleteButtonElement.addEventListener("click", () => {
+          this.todoListModel.deleteTodo({
+            id: item.id,
+          });
+        });
         todoListElement.appendChild(todoItemElement);
       });
 
       // containerElementの中身をtodoListElementで上書きする
       render(todoListElement, containerElement);
-
       todoItemCountElement.textContent = `Todoアイテム数: ${this.todoListModel.getTotalCount()}`;
     });
 
