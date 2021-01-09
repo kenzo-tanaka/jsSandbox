@@ -5,7 +5,8 @@ const userId = "js-primer-example";
 // エラーハンドリングも同期処理と同じく、try...catch構文を使える
 const main = async () => {
   try {
-    const userInfo = await fetchUserInfo("kenzoukenzou");
+    const userId = getUserId();
+    const userInfo = await fetchUserInfo(userId);
     const view = createView(userInfo);
     displayView(view);
   } catch (error) {
@@ -26,6 +27,10 @@ const fetchUserInfo = (userId) => {
       return response.json();
     }
   });
+};
+
+const getUserId = () => {
+  return document.getElementById("userId").value;
 };
 
 const createView = (userInfo) => {
