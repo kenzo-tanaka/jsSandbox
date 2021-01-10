@@ -1,7 +1,22 @@
 const App = () => {
   return (
     <div>
-      <h1>Hello, world.</h1>
+      <header>
+        <h2>Cute Dog Images</h2>
+      </header>
+      <main>
+        <section>
+          <figure>
+            <img
+              src="https://images.dog.ceo/breeds/shiba/shiba-8.jpg"
+              alt="cute dog"
+            />
+          </figure>
+        </section>
+      </main>
+      <footer>
+        <p>Dog</p>
+      </footer>
     </div>
   );
 };
