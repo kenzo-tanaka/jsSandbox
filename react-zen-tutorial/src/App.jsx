@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { fetchImages } from "./api";
 
 const Header = () => {
@@ -49,11 +49,11 @@ const Gallery = (props) => {
 };
 
 const Main = () => {
-  const urls = null;
+  const [urls, setUrls] = useState(null);
 
   // memo: 初回コンポーネントレンダリング時のみ実行
   useEffect(() => {
-    fetchImages("shiba").then((urls) => console.log(urls));
+    fetchImages("shiba").then((urls) => setUrls(urls));
   }, []);
   return (
     <main>
