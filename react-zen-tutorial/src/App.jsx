@@ -22,8 +22,16 @@ const Image = (props) => {
   );
 };
 
+const Loading = () => {
+  return <p>Loading...</p>;
+};
+
 const Gallery = (props) => {
   const { urls } = props;
+  if (urls === null) {
+    return <Loading />;
+  }
+
   return (
     <div className="columns is-vcentered is-multiline">
       {urls.map((url) => {
