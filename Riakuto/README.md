@@ -4,7 +4,7 @@
 
 - 関数型プログラミング
 - Reactの思想（宣言的とは）
-- Vue.jsなどとの違いは？
+- Vue.jsとの比較
 - クラスコンポーネントと関数コンポーネントの違い、関数コンポーネントを使う意義
 - Reactを使うメリット
 - プロトタイプベースのオブジェクト指向
@@ -100,4 +100,11 @@ Facebookはグローバルな状態管理にFluxというデザインパター�
 
 - React Native
 
-## Vue.jsなどとの違いは？
+## Vue.jsとの比較
+
+- HTMLベースで直感的に理解できる
+- コンポーネントベースのアーキテクチャに結びつけようとするとと無理が出てくる
+- Vue.jsはEasyさをアピールしていて、明確な思想・スタンスを提示していない。
+- 関連
+  - [ReactとVueのどちらを選ぶか - Qiita](https://qiita.com/yoichiwo7/items/236b6535695ea67b4fbe)
+  - [完全に独断と偏見だけどReact vs Vue してみた - Qiita](https://qiita.com/102Design/items/ae018dc80a4d879d92a8)
