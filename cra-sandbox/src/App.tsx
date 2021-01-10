@@ -1,11 +1,12 @@
 import React from "react";
 
 const App = () => {
+  const todos: string[] = ["hoge", "hoge2", "hoge3"];
   return (
     <div className="App">
-      <header className="App-header">
-        <p>Arrow Function.</p>
-      </header>
+      {todos.map((todo) => {
+        return <p>{todo}</p>;
+      })}
     </div>
   );
 };
