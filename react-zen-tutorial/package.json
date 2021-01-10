@@ -4,7 +4,8 @@
   "description": "参考記事: [Reactチュートリアル1：犬画像ギャラリーを作ろう](https://zenn.dev/likr/articles/6be53ca64f29aa035f07)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "react-scripts build",
+    "start": "react-scripts start"
   },
   "keywords": [],
   "author": "",
