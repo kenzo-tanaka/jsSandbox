@@ -2,7 +2,7 @@ import React from "react";
 
 type Props = {
   todos: {
-    id: number;
+    id: string;
     title: string;
     completed: boolean;
   }[];
