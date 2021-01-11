@@ -2,9 +2,10 @@
 // import { uuid } from "uuidv4";
 
 import { useEffect, useState } from "react";
+import { uuid } from "uuidv4";
 
 interface Todo {
-  id: number;
+  id: string;
   title: string;
   completed: boolean;
 }
@@ -18,11 +19,21 @@ export default function useTodo() {
   // 初回レンダリング時にデフォルトのTODOをセット
   useEffect(() => {
     setTodos([
-      { id: 1, title: "hoge", completed: false },
-      { id: 2, title: "hoge2", completed: false },
-      { id: 3, title: "hoge3", completed: false },
+      { id: uuid(), title: "hoge", completed: false },
+      { id: uuid(), title: "hoge2", completed: false },
+      { id: uuid(), title: "hoge3", completed: false },
     ]);
   }, []);
 
-  return { todos };
+  const addTodo = (todoTitle: string) => {
+    const newTodo: Todo = {
+      id: uuid(),
+      title: todoTitle,
+      completed: false,
+    };
+
+    setTodos(todos.concat(newTodo));
+  };
+
+  return { todos, addTodo };
 }
