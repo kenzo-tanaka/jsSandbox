@@ -15,8 +15,6 @@ interface Todos extends Array<Todo> {}
 
 export default function useTodo() {
   const [todos, setTodos] = useState<Todos>([]);
-
-  // 初回レンダリング時にデフォルトのTODOをセット
   useEffect(() => {
     setTodos([
       { id: uuid(), title: "hoge", completed: false },
