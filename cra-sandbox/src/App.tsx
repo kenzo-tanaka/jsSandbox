@@ -1,7 +1,12 @@
 import React from "react";
+import TodoList from "./components/TodoList";
 
 const App = () => {
-  const todos: string[] = ["hoge", "hoge2", "hoge3"];
+  const todos: { id: number; title: string }[] = [
+    { id: 1, title: "hoge" },
+    { id: 2, title: "hoge2" },
+    { id: 3, title: "hoge3" },
+  ];
   return (
     <div className="todoapp">
       <form id="js-form">
@@ -15,7 +20,7 @@ const App = () => {
       <div className="todo-list">
         <ul>
           {todos.map((todo) => {
-            return <li>{todo}</li>;
+            return <TodoList id={todo.id} title={todo.title} />;
           })}
         </ul>
       </div>
