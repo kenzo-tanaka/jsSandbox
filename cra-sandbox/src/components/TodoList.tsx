@@ -4,6 +4,7 @@ type Props = {
   todos: {
     id: number;
     title: string;
+    complted: boolean;
   }[];
 };
 
