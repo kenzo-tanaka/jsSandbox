@@ -1,5 +1,6 @@
 import React from "react";
 import TodoList from "./components/TodoList";
+import TodoForm from "./components/TodoForm";
 
 const App = () => {
   const todos: { id: number; title: string }[] = [
@@ -9,14 +10,7 @@ const App = () => {
   ];
   return (
     <div className="todoapp">
-      <form id="js-form">
-        <input
-          id="js-form-input"
-          className="new-todo"
-          type="text"
-          placeholder="What need to be done?"
-        />
-      </form>
+      <TodoForm />
       <div className="todo-list">
         <TodoList todos={todos} />
       </div>
