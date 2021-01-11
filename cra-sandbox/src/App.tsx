@@ -20,7 +20,7 @@ const App = () => {
       <div className="todo-list">
         <ul>
           {todos.map((todo) => {
-            return <TodoList id={todo.id} title={todo.title} />;
+            return <TodoList {...todo} />;
           })}
         </ul>
       </div>
