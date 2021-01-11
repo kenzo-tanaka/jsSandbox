@@ -18,11 +18,7 @@ const App = () => {
         />
       </form>
       <div className="todo-list">
-        <ul>
-          {todos.map((todo) => {
-            return <TodoList {...todo} />;
-          })}
-        </ul>
+        <TodoList todos={todos} />
       </div>
     </div>
   );
