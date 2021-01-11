@@ -1,6 +1,3 @@
-// TODO: 後で使う
-// import { uuid } from "uuidv4";
-
 import { useEffect, useState } from "react";
 import { uuid } from "uuidv4";
 
