@@ -1,46 +1,30 @@
-# Getting Started with Create React App
+```shell
+$ yarn
+$ yarn start
+```
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- TODO: つまづいたところをまとめる -->
 
-## Available Scripts
+`create-react-app`で1からTODOアプリを作った。`TypeScript`も使用している。
+スタイリングについては、[JavaScript Primer](https://jsprimer.net/use-case/todoapp/)のものを使用させて頂いている。
 
-In the project directory, you can run:
+コードの書き方などについては、「React 実践入門: React の基礎を理解してシンプルなアプリケーションを作る Kindle版」という書籍を参考にした。なお、書籍を実際の内容を実際にコードに落としたときのリポジトリは[こちら](https://github.com/kenzoukenzou/ReactTodoSandbox)
 
-### `yarn start`
+下記では、このプロジェクトを実装している際に躓いたところをまとめている。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## オブジェクトをもった配列の型
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Todoは`id: string`, `title: string`, `completed: boolean`を持ったオブジェクトで、その配列の型(インターフェース)を書きたいと思ったときに、どう書けばいいのかがわからなかった。
+- 色々調べた結果、[このページ](https://stackoverflow.com/a/25470775)を参考にして、下記のような書き方をした。
+- この実装でやりたいことは実現できているが、こういう書き方が良いのか・他の書き方があるのかなどは調べる必要がある。
 
-### `yarn test`
+```tsx
+interface Todo {
+  id: string;
+  title: string;
+  completed: boolean;
+}
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+interface Todos extends Array<Todo> {}
+```
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
