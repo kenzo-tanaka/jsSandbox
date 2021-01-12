@@ -3,8 +3,6 @@ $ yarn
 $ yarn start
 ```
 
-<!-- TODO: つまづいたところをまとめる -->
-
 `create-react-app`で1からTODOアプリを作った。`TypeScript`も使用している。
 スタイリングについては、[JavaScript Primer](https://jsprimer.net/use-case/todoapp/)のものを使用させて頂いている。
 
@@ -28,3 +26,36 @@ interface Todo {
 interface Todos extends Array<Todo> {}
 ```
 
+## `type Props`でオブジェクトの配列を定義したい。
+
+- 上記のTodoの配列を`type Props`の中で定義したいと思ったのだが、どう書けばよいのかがわからなかった。
+- 色々試した結果、下記で動くようになった。これも正しいのかやや曖昧なのでもう少しちゃんと調べたい。
+
+```tsx
+type Props = {
+  todos: {
+    id: string;
+    title: string;
+    completed: boolean;
+  }[];
+};
+```
+
+
+## `type Props`で関数の型を定義したい。
+
+- 関数を子コンポーネントを渡すときに、受け取り側で関数の型定義が必要だったが、わからなかった（というか、一瞬なぜ動かないのかがわからなくなった）
+- 調べた結果下記のような書き方をすることがわかった。
+
+
+```tsx
+type Props = {
+  todos: {
+    id: string;
+    title: string;
+    completed: boolean;
+  }[];
+  toggleTodo: (id: string) => void;
+  deleteTodo: (id: string) => void;
+};
+```
