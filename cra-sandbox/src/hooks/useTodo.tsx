@@ -14,7 +14,7 @@ export default function useTodo() {
   const [todos, setTodos] = useState<Todos>([]);
   useEffect(() => {
     setTodos([
-      { id: uuid(), title: "hoge", completed: false },
+      { id: uuid(), title: "hoge", completed: true },
       { id: uuid(), title: "hoge2", completed: false },
       { id: uuid(), title: "hoge3", completed: false },
     ]);

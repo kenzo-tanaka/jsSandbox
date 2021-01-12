@@ -13,7 +13,16 @@ const TodoList: React.FC<Props> = ({ todos }) => {
   return (
     <ul>
       {todos.map((todo) => {
-        return <li key={todo.id}>{todo.title}</li>;
+        return (
+          <li key={todo.id}>
+            <input
+              type="checkbox"
+              className="checkbox"
+              checked={todo.completed}
+            ></input>
+            {todo.completed ? <s>{todo.title}</s> : todo.title}
+          </li>
+        );
       })}
     </ul>
   );
