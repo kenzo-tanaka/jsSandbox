@@ -8,9 +8,10 @@ type Props = {
     completed: boolean;
   }[];
   toggleTodo: (id: string) => void;
+  deleteTodo: (id: string) => void;
 };
 
-const TodoList: React.FC<Props> = ({ todos, toggleTodo }) => {
+const TodoList: React.FC<Props> = ({ todos, toggleTodo, deleteTodo }) => {
   return (
     <ul>
       {todos.map((todo) => {
@@ -23,7 +24,9 @@ const TodoList: React.FC<Props> = ({ todos, toggleTodo }) => {
               checked={todo.completed}
             ></input>
             {todo.completed ? <s>{todo.title}</s> : todo.title}
-            <button className="delete">x</button>
+            <button className="delete" onClick={() => deleteTodo(todo.id)}>
+              x
+            </button>
           </li>
         );
       })}

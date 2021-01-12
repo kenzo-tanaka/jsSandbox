@@ -42,5 +42,10 @@ export default function useTodo() {
     setTodos(todos.concat(newTodo));
   };
 
-  return { todos, addTodo, toggleTodo };
+  const deleteTodo = (id: string) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodos);
+  };
+
+  return { todos, addTodo, toggleTodo, deleteTodo };
 }
