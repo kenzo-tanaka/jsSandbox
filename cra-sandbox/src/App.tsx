@@ -4,13 +4,13 @@ import TodoForm from "./components/TodoForm";
 import useTodo from "./hooks/useTodo";
 
 const App = () => {
-  const { todos, addTodo } = useTodo();
+  const { todos, addTodo, toggleTodo } = useTodo();
 
   return (
     <div className="todoapp">
       <TodoForm addTodo={addTodo} />
       <div className="todo-list">
-        <TodoList todos={todos} />
+        <TodoList todos={todos} toggleTodo={toggleTodo} />
       </div>
     </div>
   );

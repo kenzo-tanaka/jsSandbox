@@ -20,6 +20,18 @@ export default function useTodo() {
     ]);
   }, []);
 
+  const toggleTodo = (id: string) => {
+    const todo = todos.find((todo) => todo.id === id);
+    // スプレッド構文を使うと id, titleなどが optional になる動きだったので Object.assign(target, source); を使っている
+    const newTodo = Object.assign(todo, { completed: !todo?.completed });
+
+    const newTodos = todos.map((todo) =>
+      todo.id !== newTodo.id ? todo : newTodo
+    );
+
+    setTodos(newTodos);
+  };
+
   const addTodo = (todoTitle: string) => {
     const newTodo: Todo = {
       id: uuid(),
@@ -30,5 +42,5 @@ export default function useTodo() {
     setTodos(todos.concat(newTodo));
   };
 
-  return { todos, addTodo };
+  return { todos, addTodo, toggleTodo };
 }

@@ -7,9 +7,10 @@ type Props = {
     title: string;
     completed: boolean;
   }[];
+  toggleTodo: (id: string) => void;
 };
 
-const TodoList: React.FC<Props> = ({ todos }) => {
+const TodoList: React.FC<Props> = ({ todos, toggleTodo }) => {
   return (
     <ul>
       {todos.map((todo) => {
@@ -18,6 +19,7 @@ const TodoList: React.FC<Props> = ({ todos }) => {
             <input
               type="checkbox"
               className="checkbox"
+              onChange={() => toggleTodo(todo.id)}
               checked={todo.completed}
             ></input>
             {todo.completed ? <s>{todo.title}</s> : todo.title}
