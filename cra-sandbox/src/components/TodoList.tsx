@@ -23,6 +23,7 @@ const TodoList: React.FC<Props> = ({ todos, toggleTodo }) => {
               checked={todo.completed}
             ></input>
             {todo.completed ? <s>{todo.title}</s> : todo.title}
+            <button className="delete">x</button>
           </li>
         );
       })}
