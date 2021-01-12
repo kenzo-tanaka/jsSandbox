@@ -137,3 +137,22 @@ $ yarn add @types/react-router-dom # typescript
   </Route>
 </Switch>
 ```
+
+## `Redux`をあらためてがっつりと。
+
+- `Redux`は`Flux`の思想を受け継いでいる
+  - `Flux`は明確にMVCパターンを否定している
+  - サーバーサイドではデータフローは `model -> view`の一方向
+  - SPAでは `view -> model`のフローがいくつも出てくる
+  - 参考: [Facebook の決断：MVCはスケールしない。ならば Flux だ。](https://www.infoq.com/jp/news/2014/05/facebook-mvc-flux/)
+  - なので `Flux` ではデータの流れを単方向にしている
+- `Flux`はReact開発者に受け入れられたが、在野の天才開発者が`Redux`を発表して、そちらがスタンダードとなった。
+  - 参考: [Dan Abramov - Live React: Hot Reloading with Time Travel at react-europe 2015 - YouTube](https://www.youtube.com/watch?v=xsSnOQynTHs)
+  - もちろん、のちにFacebookに引き抜かれた
+- `Redux`の思想
+  - Single source of truth
+    - ただひとつの`store`オブジェクトによるツリー構造で状態を管理する
+  - State is read-only
+    - storeの状態更新は、`action`を発行する方法のみ限定。
+  - Changes are made with pure functions
+    - storeを更新するためには`reducer`という純粋関数を使用する。
