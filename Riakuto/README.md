@@ -156,3 +156,44 @@ $ yarn add @types/react-router-dom # typescript
     - storeの状態更新は、`action`を発行する方法のみ限定。
   - Changes are made with pure functions
     - storeを更新するためには`reducer`という純粋関数を使用する。
+
+以下は簡単なサンプルコードと、解説。  
+
+- `initState`で初期の状態を定義
+- `myreducer`関数は、状態と`action`を受け取って、状態を更新
+- `todoAction`では「どういうことをしてほしいか」を定義している
+- `store.dispatch`で`todoAction`を送信して状態更新を行う
+- 参考: [Complete React Tutorial (& Redux) #38 - Store Subscriptions - YouTube](https://www.youtube.com/watch?v=0r3eKhWag-8)
+
+```js
+const { createStore } = Redux;
+
+// initail state
+const initState = {
+  todos: [],
+  posts: [],
+};
+
+function myreducer(state = initState, action) {
+  // check action type
+  if (action.type === 'ADD_TODO') {
+    return {
+      ...state,
+      todos: [...state.todos, action.todo]
+    }
+  }
+}
+
+const store = createStore(myreducer);
+
+store.subscribe(() => {
+  console.log('state is updated');
+  console.log(store.getState());
+})
+
+const todoAction = { type: 'ADD_TODO', todo: 'buy milk' };
+
+// dispatch
+store.dispatch(todoAction)
+```
+
