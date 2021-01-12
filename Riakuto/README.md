@@ -111,3 +111,29 @@ Facebookはグローバルな状態管理にFluxというデザインパター�
 - 関連
   - [ReactとVueのどちらを選ぶか - Qiita](https://qiita.com/yoichiwo7/items/236b6535695ea67b4fbe)
   - [完全に独断と偏見だけどReact vs Vue してみた - Qiita](https://qiita.com/102Design/items/ae018dc80a4d879d92a8)
+
+
+## サクッと振り返る`react-router`のコンポーネントAPI
+
+- `Route`: どのパスでどのコンポーネントを描画するかを規定する
+- `Switch`: パスとコンポーネントの組み合わせを`switch-case`のように規定
+- `Redirect`: リダイレクトさせる
+
+```shell
+$ yarn add react-router react-router-dom
+$ yarn add @types/react-router-dom # typescript
+```
+
+```tsx
+<Switch>
+  <Route exact path="/">
+    <Hoge />
+  </Route>
+  <Route exact path="/about">
+    <About />
+  </Route>
+  <Route>
+    <NotFound />
+  </Route>
+</Switch>
+```
