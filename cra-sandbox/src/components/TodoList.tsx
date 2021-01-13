@@ -1,17 +1,27 @@
 import React from "react";
+import { connect } from "react-redux";
 
-// TODO: 変更箇所が多くなってしまっている..
 type Props = {
   todos: {
     id: string;
     title: string;
     completed: boolean;
   }[];
+  posts: {
+    id: string;
+    title: string;
+  }[];
   toggleTodo: (id: string) => void;
   deleteTodo: (id: string) => void;
 };
 
-const TodoList: React.FC<Props> = ({ todos, toggleTodo, deleteTodo }) => {
+const TodoList: React.FC<Props> = ({
+  todos,
+  toggleTodo,
+  deleteTodo,
+  posts,
+}) => {
+  console.log(posts);
   return (
     <ul>
       {todos.map((todo) => {
@@ -34,4 +44,10 @@ const TodoList: React.FC<Props> = ({ todos, toggleTodo, deleteTodo }) => {
   );
 };
 
-export default TodoList;
+const mapStateToProps = (state: { posts: any }) => {
+  return {
+    posts: state.posts,
+  };
+};
+
+export default connect(mapStateToProps)(TodoList);
