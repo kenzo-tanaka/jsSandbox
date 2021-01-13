@@ -38,3 +38,18 @@ let a8 = (x: number, y: number): number => {
 const a9 = (): void => {
   console.log("hoge");
 };
+
+/* ジェネリクス */
+/* TODO: 復習する */
+interface Foo<S, T> {
+  foo: S;
+  bar: T;
+}
+
+const a10: Foo<number, string> = {
+  foo: 1,
+  bar: "hoge",
+};
+
+/* タプル型 */
+const a11: [string, number] = ["foo", 10];
