@@ -27,3 +27,14 @@ const a7: (foo: string) => number = func;
 function func(arg: string): number {
   return Number(arg);
 }
+
+// アロー関数
+// ref: https://www.tutorialsteacher.com/typescript/arrow-function
+let a8 = (x: number, y: number): number => {
+  return x + y;
+};
+
+/* void型 */
+const a9 = (): void => {
+  console.log("hoge");
+};
