@@ -6,8 +6,17 @@ const initState = {
   ],
 };
 
-// TODO: action の型を適切に書き換える
-const rootReducer = (state = initState, action: any) => {
+const rootReducer = (
+  state = initState,
+  action: { type: string; id: string }
+) => {
+  if (action.type === "DELETE_POST") {
+    const newPosts = state.posts.filter((post) => action.id !== post.id);
+    return {
+      ...state,
+      posts: newPosts,
+    };
+  }
   return state;
 };
 

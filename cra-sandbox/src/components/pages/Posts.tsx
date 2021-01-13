@@ -6,9 +6,10 @@ type Props = {
     id: string;
     title: string;
   }[];
+  deletePost: (id: string) => void;
 };
 
-const Posts: React.FC<Props> = ({ posts }) => {
+const Posts: React.FC<Props> = ({ posts, deletePost }) => {
   return (
     <div className="todoapp">
       <div className="todo-list">
@@ -17,7 +18,9 @@ const Posts: React.FC<Props> = ({ posts }) => {
             return (
               <li key={post.id}>
                 {post.title}
-                <button className="delete">x</button>
+                <button className="delete" onClick={() => deletePost(post.id)}>
+                  x
+                </button>
               </li>
             );
           })}
@@ -33,4 +36,14 @@ const mapStateToProps = (state: { posts: any }) => {
   };
 };
 
-export default connect(mapStateToProps)(Posts);
+const mapDispatchToProps = (
+  dispatch: (arg0: { type: string; id: string }) => void
+) => {
+  return {
+    deletePost: (id: string) => {
+      dispatch({ type: "DELETE_POST", id: id });
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Posts);
