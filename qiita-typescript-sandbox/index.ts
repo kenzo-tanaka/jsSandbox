@@ -4,7 +4,7 @@ const a1: number = 3;
 /* リテラル型 */
 /* TODO: りあクト復習 */
 const a2: "hoge" = "hoge";
-const a3: "hoge" | "hogehoge" | "hogehogehoge" = "hogehoge";
+const a3: "hoge" | "hogehoge" | "hogehogehoge" = "hogehoge"; // ユニオン型とのあわせ技
 
 /* 型推論 */
 let a4 = "test";
@@ -53,3 +53,22 @@ const a10: Foo<number, string> = {
 
 /* タプル型 */
 const a11: [string, number] = ["foo", 10];
+
+/* interface */
+const red: { rgb: string; opacity: number } = { rgb: "ff0000", opacity: 1 }; // 毎回書くのは面倒...
+interface Color {
+  readonly rgb: string;
+  opacity: number;
+  name?: string;
+}
+const turquoise: Color = { rgb: "00afcc", opacity: 1 };
+
+/* インデックスシグネチャ */
+interface Status {
+  level: number;
+  [attr: string]: number; // number の任意の名前のプロパティーをセットできる
+}
+const myStatus: Status = {
+  level: 1,
+  defence: 30,
+};
