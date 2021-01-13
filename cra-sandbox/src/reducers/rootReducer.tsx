@@ -1,8 +1,8 @@
 const initState = {
   posts: [
     { id: "1", title: "hoge1" },
-    { id: "2", title: "hoge1" },
-    { id: "3", title: "hoge1" },
+    { id: "2", title: "hoge2" },
+    { id: "3", title: "hoge3" },
   ],
 };
 
