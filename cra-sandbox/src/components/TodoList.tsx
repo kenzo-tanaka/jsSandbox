@@ -1,5 +1,4 @@
 import React from "react";
-import { connect } from "react-redux";
 
 type Props = {
   todos: {
@@ -7,21 +6,11 @@ type Props = {
     title: string;
     completed: boolean;
   }[];
-  posts: {
-    id: string;
-    title: string;
-  }[];
   toggleTodo: (id: string) => void;
   deleteTodo: (id: string) => void;
 };
 
-const TodoList: React.FC<Props> = ({
-  todos,
-  toggleTodo,
-  deleteTodo,
-  posts,
-}) => {
-  console.log(posts);
+const TodoList: React.FC<Props> = ({ todos, toggleTodo, deleteTodo }) => {
   return (
     <ul>
       {todos.map((todo) => {
@@ -44,10 +33,4 @@ const TodoList: React.FC<Props> = ({
   );
 };
 
-const mapStateToProps = (state: { posts: any }) => {
-  return {
-    posts: state.posts,
-  };
-};
-
-export default connect(mapStateToProps)(TodoList);
+export default TodoList;
