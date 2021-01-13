@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 // TODO: 変更箇所が多くなってしまっている..
 type Props = {
@@ -34,4 +35,10 @@ const TodoList: React.FC<Props> = ({ todos, toggleTodo, deleteTodo }) => {
   );
 };
 
-export default TodoList;
+const mapStateToProps = (state: { todos: any }) => {
+  return {
+    todos: state.todos,
+  };
+};
+
+export default connect(mapStateToProps)(TodoList);

@@ -6,7 +6,7 @@ import useTodo from "./hooks/useTodo";
 import { Route, Switch } from "react-router";
 
 const App = () => {
-  const { todos, addTodo, toggleTodo, deleteTodo } = useTodo();
+  const { addTodo, toggleTodo, deleteTodo } = useTodo();
 
   return (
     <>
@@ -15,11 +15,7 @@ const App = () => {
           <div className="todoapp">
             <TodoForm addTodo={addTodo} />
             <div className="todo-list">
-              <TodoList
-                todos={todos}
-                toggleTodo={toggleTodo}
-                deleteTodo={deleteTodo}
-              />
+              <TodoList toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
             </div>
           </div>
         </Route>
