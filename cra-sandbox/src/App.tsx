@@ -1,7 +1,7 @@
 import React from "react";
 import TodoList from "./components/TodoList";
 import TodoForm from "./components/TodoForm";
-import About from "./components/pages/About";
+import Posts from "./components/pages/Posts";
 import useTodo from "./hooks/useTodo";
 import { Route, Switch } from "react-router";
 
@@ -23,8 +23,8 @@ const App = () => {
             </div>
           </div>
         </Route>
-        <Route exact path="/about">
-          <About />
+        <Route exact path="/posts">
+          <Posts />
         </Route>
       </Switch>
     </>

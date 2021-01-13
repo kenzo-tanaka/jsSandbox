@@ -1,6 +1,5 @@
 import React from "react";
 
-// TODO: 変更箇所が多くなってしまっている..
 type Props = {
   todos: {
     id: string;
