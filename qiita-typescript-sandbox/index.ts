@@ -33,6 +33,10 @@ function func(arg: string): number {
 let a8 = (x: number, y: number): number => {
   return x + y;
 };
+const add = (n: number, m: number): number => n + m;
+const hello = (): void => {
+  console.log("Hello");
+};
 
 /* void型 */
 const a9 = (): void => {
@@ -63,6 +67,15 @@ interface Color {
 }
 const turquoise: Color = { rgb: "00afcc", opacity: 1 };
 
+// interfaceに関数を定義
+interface NumOp {
+  (n: number, m: number): number;
+}
+// add2の型をNumOpで定義している
+const add2: NumOp = function (n, m) {
+  return n + m;
+};
+
 /* インデックスシグネチャ */
 interface Status {
   level: number;
@@ -72,3 +85,16 @@ const myStatus: Status = {
   level: 1,
   defence: 30,
 };
+
+/* 関数の型宣言にジェネリクスを使う記法 */
+const toArray = <T>(arg1: T, arg2: T): T[] => [arg1, arg2];
+toArray("foo", "bar"); // ["foo", "bar"]
+toArray(1, 2); // [1,2]
+// Tは型引数, 任意の型を<>におって渡すことでその関数の引数や戻り値の型に適用できる
+
+// 上記を可変長引数で行いたい場合
+const toArrayVariably = <T>(...args: T[]) => [...args];
+toArrayVariably(1, 2, 3, 4, 5); // [1,2,3,4,5]
+
+/* 型エイリアス type */
+// 任意の型に別名を与えて再利用できる機能
